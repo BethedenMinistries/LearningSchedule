@@ -1,0 +1,279 @@
+﻿#!/bin/bash
+echo 'awbsched.pl  -x    -f VidTest.tsv -o ts_xunitMode.txt'
+awbsched.pl  -x    -f VidTest.tsv -o ts_xunitMode.txt
+
+echo 'awbsched.pl  -x -s 2 -e 17 -f VidTest.tsv -o ts_xunitModeT.txt'
+awbsched.pl  -x -s 2 -e 17 -f VidTest.tsv -o ts_xunitModeT.txt
+
+echo 'awbsched.pl  -x -p -s 2 -e 17 -f VidTest.tsv -o ts_xunitModeTp.txt'
+awbsched.pl  -x -p -s 2 -e 17 -f VidTest.tsv -o ts_xunitModeTp.txt
+
+
+echo 'awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitMode1.txt'
+awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitMode1.txt
+
+echo 'awbsched.pl  -u 2   -f VidTest.tsv -o ts_unitMode2.txt'
+awbsched.pl  -u 2   -f VidTest.tsv -o ts_unitMode2.txt
+
+echo 'awbsched.pl  -u 1     -s 2 -e 17   -f VidTest.tsv -o ts_unitMode1Ts2.txt'
+awbsched.pl  -u 1      -s 2 -e 17  -f VidTest.tsv -o ts_unitMode1Ts2.txt
+
+echo 'awbsched.pl  -u 2     -s 2 -e 17   -f VidTest.tsv -o ts_unitMode2Ts2.txt'
+awbsched.pl  -u 2     -s 2 -e 17   -f VidTest.tsv -o ts_unitMode2Ts2.txt
+
+echo 'awbsched.pl  -u 2     -s 3 -e 17   -f VidTest.tsv -o ts_unitMode2Ts3.txt'
+awbsched.pl  -u 2     -s 3 -e 17   -f VidTest.tsv -o ts_unitMode2Ts3.txt
+
+echo 'awbsched.pl  -u 2     -s 4 -e 17   -f VidTest.tsv -o ts_unitMode2Ts4.txt'
+awbsched.pl  -u 2     -s 4 -e 17   -f VidTest.tsv -o ts_unitMode2Ts4.txt
+
+echo 'awbsched.pl  -u 2  -p   -s 4 -e 17   -f VidTest.tsv -o ts_unitMode2Ts4p.txt'
+awbsched.pl  -u 2  -p   -s 4 -e 17   -f VidTest.tsv -o ts_unitMode2Ts4p.txt
+
+echo 'awbsched.pl  -m 1  -f VidTest.tsv -o ts_mainMode1.txt'
+awbsched.pl  -m 1  -f VidTest.tsv -o ts_mainMode1.txt
+
+echo 'awbsched.pl  -m 2  -f VidTest.tsv -o ts_mainMode2.txt'
+awbsched.pl  -m 2  -f VidTest.tsv -o ts_mainMode2.txt
+
+echo 'awbsched.pl  -m 3  -f VidTest.tsv -o ts_mainMode3.txt'
+awbsched.pl  -m 3  -f VidTest.tsv -o ts_mainMode3.txt
+
+echo 'awbsched.pl  -m 4  -f VidTest.tsv -o ts_mainMode4.txt'
+awbsched.pl  -m 4  -f VidTest.tsv -o ts_mainMode4.txt
+
+echo 'awbsched.pl  -m 5  -f VidTest.tsv -o ts_mainMode5.txt'
+awbsched.pl  -m 5  -f VidTest.tsv -o ts_mainMode5.txt
+
+echo 'awbsched.pl  -m 1     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode1T.txt'
+awbsched.pl  -m 1      -s 2 -e 17 -f VidTest.tsv -o ts_mainMode1T.txt
+
+echo 'awbsched.pl  -m 2     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2T.txt'
+awbsched.pl  -m 2     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2T.txt
+
+echo 'awbsched.pl  -m 2  -p   -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2Tp.txt'
+awbsched.pl  -m 2   -p  -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2Tp.txt
+
+echo 'awbsched.pl  -m 2     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2T.txt'
+awbsched.pl  -m 2     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode2T.txt
+
+echo 'awbsched.pl  -m 3  -p   -s 2 -e 17  -f VidTest.tsv -o ts_mainMode3Tp.txt'
+awbsched.pl  -m 3  -p   -s 2 -e 17  -f VidTest.tsv -o ts_mainMode3Tp.txt
+
+echo 'awbsched.pl  -m 4     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode4T.txt'
+awbsched.pl  -m 4      -s 2 -e 17 -f VidTest.tsv -o ts_mainMode4T.txt
+
+echo 'awbsched.pl  -m 5     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode5T.txt'
+awbsched.pl  -m 5     -s 2 -e 17  -f VidTest.tsv -o ts_mainMode5T.txt
+
+
+echo 'awbsched.pl  -t 50:00  -f VidTest.tsv -o ts_timeMode50.txt'
+awbsched.pl  -t 50:00  -f VidTest.tsv -o ts_timeMode50.txt
+
+echo 'awbsched.pl  -t 50:00   -w 4 -f VidTest.tsv -o ts_timeMode50w4.txt'
+awbsched.pl  -t 50:00 -w 4 -f VidTest.tsv -o ts_timeMode50w4.txt
+
+echo 'awbsched.pl  -m  0 -f VidTest.tsv -o ts_mainMode0_.txt'
+awbsched.pl  -m  0 -f VidTest.tsv -o ts_mainMode0_.txt
+
+echo 'awbsched.pl  -t 30:00  -f VidTest.tsv -o ts_timeMode30.txt'
+awbsched.pl  -t 30:00  -f VidTest.tsv -o ts_timeMode30.txt
+
+echo 'awbsched.pl  -t 100:00 -f VidTest.tsv -o ts_timeMode100.txt'
+awbsched.pl  -t 100:00 -f VidTest.tsv -o ts_timeMode100.txt
+
+echo 'awbsched.pl  -t 90:00  -f VidTest.tsv -o ts_timeMode90.txt'
+awbsched.pl  -t 90:00  -f VidTest.tsv -o ts_timeMode90.txt
+
+echo 'awbsched.pl  -t 90:00  -w 3 -f VidTest.tsv -o ts_timeMode90w3.txt'
+awbsched.pl  -t 90:00  -w 3 -f VidTest.tsv -o ts_timeMode90w3.txt
+
+echo 'awbsched.pl     -s 2 -e 17  -t 50:00  -f VidTest.tsv -o ts_timeMode50T.txt'
+awbsched.pl     -s 2 -e 17  -t 50:00  -f VidTest.tsv -o ts_timeMode50T.txt
+
+echo 'awbsched.pl      -t 20:00  -f VidTest.tsv -o ts_timeMode20.txt'
+awbsched.pl     -t 20:00  -f VidTest.tsv -o ts_timeMode20.txt
+
+echo 'awbsched.pl     -s 2 -e 17 -p -t 50:00  -f VidTest.tsv -o ts_timeMode50Tp.txt'
+awbsched.pl     -s 2 -e 17 -p -t 50:00  -f VidTest.tsv -o ts_timeMode50Tp.txt
+
+echo 'awbsched.pl     -s 2 -e 17  -t 30:00  -f VidTest.tsv -o ts_timeMode30T.txt'
+awbsched.pl     -s 2 -e 17  -t 30:00  -f VidTest.tsv -o ts_timeMode30T.txt
+
+echo 'awbsched.pl     -s 2 -e 17  -t 100:00 -f VidTest.tsv -o ts_timeMode100T.txt'
+awbsched.pl     -s 2 -e 17  -t 100:00 -f VidTest.tsv -o ts_timeMode100T.txt
+
+echo 'awbsched.pl     -s 2 -e 17  -t 90:00  -f VidTest.tsv -o ts_timeMode90T.txt'
+awbsched.pl     -s 2 -e 17  -t 90:00  -f VidTest.tsv -o ts_timeMode90T.txt
+
+
+echo 'awbsched.pl  -v 2  -f VidTest.tsv -o ts_videoMode2.txt'
+awbsched.pl  -v 2  -f VidTest.tsv -o ts_videoMode2.txt
+
+echo 'awbsched.pl  -v 3  -f VidTest.tsv -o ts_videoMode3.txt'
+awbsched.pl  -v 3  -f VidTest.tsv -o ts_videoMode3.txt
+
+echo 'awbsched.pl  -v 4  -f VidTest.tsv -o ts_videoMode4.txt'
+awbsched.pl  -v 4  -f VidTest.tsv -o ts_videoMode4.txt
+
+echo 'awbsched.pl  -v 5  -f VidTest.tsv -o ts_videoMode5.txt'
+awbsched.pl  -v 5  -f VidTest.tsv -o ts_videoMode5.txt
+
+echo 'awbsched.pl  -v 2     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode2T.txt'
+awbsched.pl  -v 2     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode2T.txt
+
+echo 'awbsched.pl  -v 3     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode3T.txt'
+awbsched.pl  -v 3     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode3T.txt
+
+echo 'awbsched.pl  -v 4     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode4T.txt'
+awbsched.pl  -v 4     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode4T.txt
+
+echo 'awbsched.pl  -v 5     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode5T.txt'
+awbsched.pl  -v 5     -s 2 -e 17  -f VidTest.tsv -o ts_videoMode5T.txt
+
+echo 'awbsched.pl  -a Aleph -m 2  -f VidTest.tsv -o ts_mainModeA.txt'
+awbsched.pl  -a Aleph -m 2  -f VidTest.tsv -o ts_mainModeA.txt
+
+echo 'awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitModeSp.txt AWBSpanish.txt'
+awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitModeSp.txt AWBSpanish.txt
+
+echo 'awbsched.pl -m 3 -f VidTest.tsv  (output = AWBEnglish_Schedule.txt)'
+awbsched.pl -m 3 -f VidTest.tsv 
+
+exit;
+
+# Warning Testing
+
+echo ' '
+echo ' '
+echo '*************WARNING TESTING*************'
+echo ' '
+echo ' '
+
+echo 'awbsched.pl  -u 1 -x -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_unitMode_xmvt.txt'
+awbsched.pl  -u 1 -x -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_unitMode_xmvt.txt
+
+echo 'awbsched.pl  -u 1 -x -f VidTest.tsv -o ts_unitMode_x.txt'
+awbsched.pl  -u 1 -x  -f VidTest.tsv -o ts_unitMode_x.txt
+
+echo 'awbsched.pl  -u 1 -m 2 -f VidTest.tsv -o ts_unitMode_m.txt'
+awbsched.pl  -u 1 -m 2 -f VidTest.tsv -o ts_unitMode_m.txt
+
+echo 'awbsched.pl  -u 1 -v 3  -f VidTest.tsv -o ts_unitMode_v.txt'
+awbsched.pl  -u 1 -v 3  -f VidTest.tsv -o ts_unitMode_v.txt
+
+echo 'awbsched.pl  -u 1 -t 40:00 -f VidTest.tsv -o ts_unitMode_t.txt'
+awbsched.pl  -u 1 -t 40:00 -f VidTest.tsv -o ts_unitMode_t.txt
+
+echo 'awbsched.pl  -x -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_unitxMode_mvt.txt'
+awbsched.pl  -x -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_unitxMode_mvt.txt
+
+echo 'awbsched.pl  -x -m 2  -f VidTest.tsv -o ts_unitxMode_m.txt'
+awbsched.pl  -x -v 3  -f VidTest.tsv -o ts_unitxMode_m.txt
+
+echo 'awbsched.pl  -x -v 3  -f VidTest.tsv -o ts_unitxMode_v.txt'
+awbsched.pl  -x  -v 3  -f VidTest.tsv -o ts_unitxMode_v.txt
+
+echo 'awbsched.pl  -x -t 40:00 -f VidTest.tsv -o ts_unitxMode_t.txt'
+awbsched.pl  -x  -t 40:00 -f VidTest.tsv -o ts_unitxMode_t.txt
+
+echo 'awbsched.pl  -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_mainMode_vt.txt'
+awbsched.pl  -m 2 -v 3 -t 40:00 -f VidTest.tsv -o ts_mainMode_vt.txt
+
+echo 'awbsched.pl  -m 2 -t 40:00 -f VidTest.tsv -o ts_mainMode_t.txt'
+awbsched.pl  -m 2 -t 40:00 -f VidTest.tsv -o ts_mainMode_t.txt
+
+echo 'awbsched.pl  -m 2 -v 3  -f VidTest.tsv -o ts_mainMode_v.txt'
+awbsched.pl  -m 2 -v 3  -f VidTest.tsv -o ts_mainMode_v.txt
+
+echo 'awbsched.pl  -v 3 -t 40:00 -f VidTest.tsv -o ts_videoMode_t.txt'
+awbsched.pl  -v 3 -t 40:00 -f VidTest.tsv -o ts_videoMode_t.txt
+
+echo 'awbsched.pl -m 3 -p -f VidTest.tsv -o ts_unitMode1w4.txt'
+awbsched.pl -m 3 -p -f VidTest.tsv -o ts_unitMode1w4.txt
+
+echo 'awbsched.pl  -u 1     -s 2 -e 17  -w 4 -f VidTest.tsv -o ts_unitMode1Tw4.txt'
+awbsched.pl  -u 1      -s 2 -e 17 -w 4 -f VidTest.tsv -o ts_unitMode1Tw4.txt
+
+
+
+
+
+
+# Error Testing
+
+echo ' '
+echo ' '
+echo '*************ERROR TESTING*************'
+echo ' '
+echo ' '
+
+echo 'awbsched.pl -t 90:00  -f VidTests.tsv -o ts_timeMode90.txt'
+awbsched.pl -t 90:00  -f VidTests.tsv -o ts_timeMode90.txt
+
+echo 'awbsched.pl -t 90:00  -f VidTest.tsv -o ts_timeMode90.txt AWBEnglishs.txt'
+awbsched.pl -t 90:00  -f VidTest.tsv -o ts_timeMode90.txt AWBEnglishs.txt
+
+echo 'awbsched.pl  -u 3   -f VidTest.tsv -o ts_unitModeBad3.txt'
+awbsched.pl  -u 3   -f VidTest.tsv -o ts_unitModeBad3.txt
+echo 'awbsched.pl  -u test   -f VidTest.tsv -o ts_unitModeBad.txt'
+awbsched.pl  -u test   -f VidTest.tsv -o ts_unitModeBad.txt
+
+echo 'awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitModeBad.txt AWBEnlish.txt'
+awbsched.pl  -u 1   -f VidTest.tsv -o ts_unitModeBad.txt AWBEnlish.txt
+
+
+echo 'awbsched.pl  -t test -f VidTest.tsv -o ts_timeModeBad.txt'
+awbsched.pl  -t test -f VidTest.tsv -o ts_timeModeBad.txt
+echo 'awbsched.pl  -t 50 -f VidTest.tsv -o ts_timeModeBad50.txt'
+awbsched.pl  -t 50 -f VidTest.tsv -o ts_timeModeBad50.txt
+echo 'awbsched.pl  -t 4800:01 -f VidTest.tsv -o ts_timeModeBad.txt'
+awbsched.pl  -t 4800:01 -f VidTest.tsv -o ts_timeModeBad.txt
+
+
+echo 'awbsched.pl  -m test  -f VidTest.tsv -o ts_mainModeBad.txt'
+awbsched.pl  -m test  -f VidTest.tsv -o ts_mainModeBad.txt
+echo 'awbsched.pl  -m 7  -f VidTest.tsv -o ts_mainModeBad7.txt'
+awbsched.pl  -m 7  -f VidTest.tsv -o ts_mainModeBad7.txt
+echo 'awbsched.pl  -m 2.3  -f VidTest.tsv -o ts_mainModeBad7.txt'
+awbsched.pl  -m 2.3  -f VidTest.tsv -o ts_mainModeBad7.txt
+
+
+echo 'awbsched.pl  -v 7  -f VidTest.tsv -o ts_videoModeBad7.txt'
+awbsched.pl  -v 7  -f VidTest.tsv -o ts_videoModeBad7.txt
+echo 'awbsched.pl  -v test  -f VidTest.tsv -o ts_videoModeBad.txt'
+awbsched.pl  -v test  -f VidTest.tsv -o ts_videoModeBad.txt
+
+echo 'awbsched.pl  -a Alpha -m 2  -f VidTest.tsv -o ts_mainModeBadA.txt'
+awbsched.pl  -a Alpha -m 2  -f VidTest.tsv -o ts_mainModeBadA.txt
+echo 'awbsched.pl  -u 1.3  -o ts_unitMode_many.txt'
+awbsched.pl  -u 1.3  -o ts_unitMode_many.txt
+echo 'awbsched.pl  -u 1.3  -o ts_unitMode_many.txt'
+awbsched.pl  -u 1.3  -o ts_unitMode_many.txt
+
+echo 'awbsched.pl  -u 1  -s 2.3 -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -s 2.3  -o ts_unitMode_many.txt
+echo 'awbsched.pl  -u 1  -e 2.3 -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -e 2.3  -o ts_unitMode_many.txt
+echo 'awbsched.pl  -u 1  -s -3 -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -s -3  -o ts_unitMode_many.txt
+echo 'awbsched.pl  -u 1  -s 10 -e 3 -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -s 10 -e 3  -o ts_unitMode_many.txt
+
+echo 'awbsched.pl  -u 1  -s test  -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -s test  -o ts_unitMode_many.txt
+
+echo 'awbsched.pl  -u 1  -e test  -o ts_unitMode_many.txt'
+awbsched.pl  -u 1 -e test  -o ts_unitMode_many.txt
+
+echo 'awbsched.pl  -u 1     -s 2 -e 17  -w 8 -f VidTest.tsv -o ts_unitMode1T.txt'
+awbsched.pl  -u 1      -s 2 -e 17 -w 8 -f VidTest.tsv -o ts_unitMode1T.txt
+echo 'awbsched.pl  -u 1     -s 2 -e 17  -w test -f VidTest.tsv -o ts_unitMode1T.txt'
+awbsched.pl  -u 1      -s 2 -e 17 -w test -f VidTest.tsv -o ts_unitMode1T.txt
+echo 'awbsched.pl  -u 1     -s 2 -e 17  -w 3.5 -f VidTest.tsv -o ts_unitMode1T.txt'
+awbsched.pl  -u 1      -s 2 -e 17 -w 3.5 -f VidTest.tsv -o ts_unitMode1T.txt
+
+echo 'awbsched.pl  -u 1  -w 8 -f VidTest.tsv -o ts_unitMode1Badw4.txt'
+awbsched.pl  -u 1 -w 8 -f VidTest.tsv -o ts_unitMode1Badw4.txt
+
+

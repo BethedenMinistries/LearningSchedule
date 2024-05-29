@@ -1,0 +1,300 @@
+﻿##########################################################################################
+### Language-specific File for Aleph with Beth Learning Schedule
+### 
+### TARGET LANGUAGE: English
+### 
+### Input file for awbsched.pl.
+### 
+### Syntax:
+### 
+### 	Default:
+### 		<tag>Text for that tag with && character to mark where .
+### 
+### 		The text following the tag will be assigned to that tag in the program.
+###			'&&' will be substituted with the lesson number or other specific information.
+###			Some of the text is a URL. The correct link may be different for different
+###				 languages.
+### 		
+### 
+### 	Special Cases: 
+###
+###         <introN>, <howtoN>, and <linksN> are for the content at the 
+###                beginning of the learning schedule. N will increment from 0. 
+###				   the number of lines is flexible.
+###                
+### 		<Bible>
+### 		<Book-of-the-Bible-tag>Book-of-the-Bible-name-in-target-language
+###			</Bible>
+### 
+### 
+### 		The tags <Bible> and </Bible> mark the beginning and end of   
+### 			book of the bible tag/text pairs. 
+### 
+### 
+### Comment Character: #
+### 	Comments can only be full line. (One of the URLs contains a '#')
+### 	Leave the Commented English template for each tag so that the translation  
+### 		can be compared to the original.
+### 
+### Comments and blank lines will be ignored.
+### 
+##########################################################################################
+### 
+### 8/15/2022: Languages already being translated by AwB.
+### English, Spanish, Portuguese, French, Russian, Hindi, Chinese, Kiswahili, Bahasa (Indonesia), Polish
+### 
+### 
+### From https://www.indexmundi.com/world/languages.html
+### Languages:
+### 
+### most-spoken languages: 
+### English 16.5%, Mandarin Chinese 14.6%, Hindi 8.3%, Spanish 7%, 
+### French 3.6%, Arabic 3.6%, Bengali 3.4%, Russian 3.4%, Portuguese 3.3%, Indonesian 2.6% (2020 est.) 
+### 
+### most-spoken first languages: 
+### Mandarin Chinese 12.3%, Spanish 6%, English 5.1%, Arabic 5.1%, Hindi 3.5%, Bengali 3.3%, 
+### Portuguese 3%, Russian 2.1%, Japanese 1.7%, Punjabi, Western 1.3%, Javanese 1.1% (2018 est.)
+### 
+### The six UN languages:
+### Arabic, Chinese (Mandarin), English, French, Russian, and Spanish (Castilian)
+### - are the mother tongue or second language of about 45% of the world's population, 
+###   and are the official languages in more than half the states in the world
+### 
+##########################################################################################
+
+
+##########################################################################################
+### Tag for Locale (Used to select the correct video titles from the database file)
+### Use standard Unix locale names for consistency.
+### The video database must include a column of the name Title_<locale string>.
+### 
+### Keep it as en_US unless you know the videos have alternate titles for this langauge
+##########################################################################################
+#<locale>en_US
+<locale>en_US
+
+##########################################################################################
+### Tags for informational text at the beginning of the learning schedule
+### Must be of the form 'introN' where N is a number (1 or more digits). 
+### N = 0 for the heading. N values must be sequential.
+##########################################################################################
+#<intro0>Study Schedule for Lessons &&
+<intro0>Study Schedule for Lessons &&
+
+#<intro1>A plan to use Aleph with Beth videos to learn Hebrew.    
+<intro1>A plan to use Aleph with Beth videos to learn Hebrew.
+
+#<intro2>No prior knowledge is assumed.
+<intro2>No prior knowledge is assumed.
+
+#<intro3>Feel free to download and tailor it to your own schedule.
+<intro3>Feel free to download and tailor it to your own schedule.
+
+#<intro4>Print it out if you can and start checking off your progress!
+<intro4>Print it out if you can and start checking off your progress!
+
+##########################################################################################
+### Tags for How-to Tips and Videos at the beginning of the learning schedule
+### Must be of the form 'howtoN' where N is a number (1 or more digits). 
+### N = 0 for the heading. N values must be sequential.
+### Tab characters in front of URLs for formatting must be in this file.
+##########################################################################################
+#<howto0>Videos to help you get started
+<howto0>Videos to help you get started
+
+#<howto1>How to Use Aleph with Beth Videos to Learn Biblical Hebrew (English, 10:19)
+<howto1>How to Use Aleph with Beth Videos to Learn Biblical Hebrew (English, 10:19)
+
+#<howto2>https://www.youtube.com/watch?v=GEJYWpZV2TM (language-specific link)
+<howto2>https://www.youtube.com/watch?v=GEJYWpZV2TM
+
+#<howto3>Seven tips for studying Biblical languages (LANGUAGE, MM:SS)
+<howto3>Seven tips for studying Biblical languages (English, 6:53)
+
+#<howto4>https://www.youtube.com/watch?v=KDpOkbrVFuM (language-specific link)
+<howto4>https://www.youtube.com/watch?v=KDpOkbrVFuM
+
+#<howto5>How to Keep Growing in Hebrew if You’ve Reached the End of Our Videos 
+<howto5>How to Keep Growing in Hebrew if You’ve Reached the End of Our Videos 
+
+#<howto6>https://www.youtube.com/watch?v=n8GfIhf3lXQ (Language-specific link)
+<howto6>https://www.youtube.com/watch?v=n8GfIhf3lXQ
+
+##########################################################################################
+### Tags for Useful Links at the beginning of the learning schedule
+### Must be of the form 'linksN' where N is a number (1 or more digits). 
+### N = 0 for the heading. N values must be sequential.
+### Tab characters in front of URLs for formatting must be in this file.
+##########################################################################################
+#<links0>Useful Links
+<links0>Useful Links
+
+#<links1>Aleph with Beth Home Page
+<links1>Aleph with Beth Home Page
+
+#<links2>https://freehebrew.online
+<links2>https://freehebrew.online
+
+#<links3>All Resources (Lesson Scripts, Quizzes, Grammar, Vocabulary, Worksheets, etc.):
+<links3>All Resources (Lesson Scripts, Quizzes, Grammar, Vocabulary, Worksheets, etc.):
+
+#<links4>https://freehebrew.online/resources
+<links4>https://freehebrew.online/resources
+
+#<links5>Video Playlists: https://www.youtube.com/c/AlephwithBeth/playlists
+<links5>Video Playlists: https://www.youtube.com/c/AlephwithBeth/playlists
+
+#<links6>Quizzes: https://hebrew.bibleling.org/#/14
+<links6>Quizzes: https://hebrew.bibleling.org/#/14
+
+#<links7>Alphabet Practice Worksheet:          
+<links7>Alphabet Practice Worksheet:    
+     
+#<links8>https://www.mediafire.com/file/lgz8tc0udvmipds/Aleph_with_Beth_Writing_the_Alphabet_worksheet.pdf/file
+<links8>https://www.mediafire.com/file/lgz8tc0udvmipds/Aleph_with_Beth_Writing_the_Alphabet_worksheet.pdf/file
+
+##########################################################################################
+### Tags for various steps based on video type in the learning schedule
+##########################################################################################
+
+#<watch_listen>Watch Lesson && just listening.
+<watch_listen>Watch Lesson && just listening.
+
+#<watch_repeat>Watch Lesson && repeating aloud.
+<watch_repeat>Watch Lesson && repeating aloud.
+
+#<watch_story_listen>Watch Hebrew Easy Story && just listening.
+<watch_story_listen>Watch Hebrew Easy Story && just listening.
+
+#<watch_story_repeat>Watch Hebrew Easy Story && repeating aloud.
+<watch_story_repeat>Watch Hebrew Easy Story && repeating aloud.
+
+#<write10>Practice writing each of the Hebrew letters from Lesson && ten times.
+<write10>Practice writing each of the Hebrew letters from Lesson && ten times.
+
+#<related>Review related lesson video, Lesson &&.
+<related>Review related lesson video, Lesson &&.
+
+#<review_game>Watch review video, &&, and try to respond before hearing the answer.
+<review_game>Watch review video, &&, and try to respond before hearing the answer.
+
+#<read_script>Read the script for Lesson && aloud twice.
+<read_script>Read the script for Lesson && aloud twice.
+
+#<read_verse>Read verse(s) && aloud twice.
+<read_verse>Read verse(s) && aloud twice.
+
+#<quiz_yes>Take Quiz && online at Bibleling.org. I got _____% the 1st time (and _____% the 2nd time).
+<quiz_yes>Take Quiz && online at Bibleling.org. I got _____% the 1st time (and _____% the 2nd time).
+
+#<quiz_no>Keep checking https://hebrew.bibleling.org/#/14 for new quizzes for lesson &&.
+<quiz_no>Keep checking https://hebrew.bibleling.org/#/14 for new quizzes for lesson &&.
+
+#<extra>Video of story from Lesson && is available for review.
+<extra>Video of story from Lesson && is available for review.
+
+#<alpha_extra>Watch supplemental video for Lesson && twice.
+<alpha_extra>Watch supplemental video for Lesson && twice.
+
+#<optional>Watch optional video &&.
+<optional>Watch optional video &&.
+
+#<worship>Watch song video &&. Try to sing along.
+<worship>Watch song video &&. Try to sing along.
+
+#<time>Approximate Time: &&
+<time>Approximate Time: &&
+
+#<longest>Longest Study Day (mm:ss): &&
+<longest>Longest Study Day (mm:ss): &&
+
+#<shortest>Shortest Study Day (mm:ss): &&
+<shortest>Shortest Study Day (mm:ss): &&
+
+#<average>Average Study Day (mm:ss): &&
+<average>Average Study Day (mm:ss): &&
+
+#<total_days>Total Number of Study Days: &&
+<total_days>Total Number of Study Days: &&
+
+#<total_time>Total Study Time (hh:mm:ss): &&
+<total_time>Total Study Time (hh:mm:ss): &&
+
+#<week>Week
+<week>Week
+#<day>Day
+<day>Day
+#<more>More Lessons Are Coming!
+<more>More Lessons Are Coming!
+#
+##########################################################################################
+### Tags Books of the Bible
+##########################################################################################
+<Bible>
+<Genesis>Genesis
+<Exodus>Exodus
+<Leviticus>Leviticus
+<Numbers>Numbers
+<Deuteronomy>Deuteronomy
+<Joshua>Joshua
+<Judges>Judges
+<Ruth>Ruth
+<1 Samuel>1 Samuel
+<2 Samuel>2 Samuel
+<1 Kings>1 Kings
+<2 Kings>2 Kings
+<1 Chronicles>1 Chronicles
+<2 Chronicles>2 Chronicles
+<Ezra>Ezra
+<Nehemiah>Nehemiah
+<Esther>Esther
+<Job>Job
+<Psalm>Psalm
+<Proverbs>Proverbs
+<Ecclesiastes>Ecclesiastes
+<Song of Solomon>Song of Solomon
+<Isaiah>Isaiah
+<Jeremiah>Jeremiah
+<Lamentations>Lamentations
+<Ezekiel>Ezekiel
+<Daniel>Daniel
+<Hosea>Hosea
+<Joel>Joel
+<Amos>Amos
+<Obadiah>Obadiah
+<Jonah>Jonah
+<Micah>Micah
+<Nahum>Nahum
+<Habbakkuk>Habbakkuk
+<Zephaniah>Zephaniah
+<Haggai>Haggai
+<Zechariah>Zechariah
+<Malachi>Malachi
+<Matthew>Matthew
+<Mark>Mark
+<Luke>Luke
+<John>John
+<Acts>Acts
+<Romans>Romans
+<1 Corinthians>1 Corinthians
+<2 Corinthians>2 Corinthians
+<Galatians>Galatians
+<Ephesians>Ephesians
+<Philippians>Philippians
+<Colossians>Colossians
+<1 Thessalonians>1 Thessalonians
+<2 Thassalonians>2 Thessalonians
+<1 Timothy>1 Timothy
+<2 Timothy>2 Timothy
+<Titus>Titus
+<Philemon>Philemon
+<Hebrews>Hebrews
+<James>James
+<1 Peter>1 Peter
+<2 Peter>2 Peter
+<1 John>1 John
+<2 John>2 John
+<3 John>3 John
+<Jude>Jude
+<Revelation>Revelation
+</Bible>

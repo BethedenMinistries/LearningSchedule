@@ -1,0 +1,50 @@
+﻿
+awbsched.pl -p -s 9 -e 20  -x -o TestSched_xunitMode9.txt
+awbsched.pl -p -s 73 -e 86 -x -o TestSched_xunitMode73.txt
+
+awbsched.pl -p -s 9 -e 20  -u -o TestSched_unitMode9.txt
+awbsched.pl -p -s 73 -e 86 -u -o TestSched_unitMode73.txt
+
+awbsched.pl -p -s 9 -e 20  -m 2  -o TestSched_mainMode9.txt
+awbsched.pl -p -s 73 -e 86 -m 2  -o TestSched_mainMode73.txt
+
+awbsched.pl -p -s 9 -e 20  -t 50:00 -o TestSched_timeMode9.txt
+awbsched.pl -p -s 73 -e 86 -t 50:00 -o TestSched_timeMode73.txt
+
+awbsched.pl -p -s 9 -e 20  -v 3  -o TestSched_videoMode9.txt
+awbsched.pl -p -s 73 -e 86 -v 3  -o TestSched_videoMode73.txt
+
+awbsched.pl -p -s 8  -e 19 -x -o TestSched_xunitMode8_19.txt
+awbsched.pl -p -s 72 -e 85 -x -o TestSched_xunitMode72_85.txt
+awbsched.pl -s 8 -e 19 -x -o TestSched_xunitMode8_19noP.txt
+
+awbsched.pl    -s 9 -e 20      -m 2  -o TestSched_mainMode9noP.txt
+awbsched.pl -p -s 9 -e 20 -w 5 -m 2  -o TestSched_mainMode9w5.txt
+awbsched.pl -p -s 9 -e 20 -w 4 -m 2  -o TestSched_mainMode9w4.txt
+
+
+awbsched.pl -p -s 9 -e 20  -m 4  -o TestSched_mainMode9_4.txt
+awbsched.pl -p -s 73 -e 86 -m 4  -o TestSched_mainMode73_4.txt
+
+awbsched.pl -p -s 9 -e 20  -t 30:00 -o TestSched_timeMode9_30.txt
+awbsched.pl -p -s 73 -e 86 -t 30:00 -o TestSched_timeMode73_30.txt
+
+awbsched.pl -t 30:00 -o TestSched_timeMode30.txt
+awbsched.pl -t 50:00 -o TestSched_timeMode50.txt
+awbsched.pl -t 100:00 -o TestSched_timeMode100.txt
+
+
+
+awbsched.pl  -x    -v VidTest.tsv -o ts_xunitMode.txt
+
+awbsched.pl  -u    -v VidTest.tsv -o ts_unitMode.txt
+
+awbsched.pl  -m 2  -v VidTest.tsv -o ts_mainMode.txt
+
+awbsched.pl  -t 50:00 -v VidTest.tsv -o ts_timeMode50.txt
+
+awbsched.pl  -v 3  -v VidTest.tsv -o ts__videoMode.txt
+
+awbsched.pl -t 30:00  -v VidTest.tsv -o ts_timeMode30.txt
+awbsched.pl -t 100:00 -v VidTest.tsv -o ts_timeMode100.txt
+awbsched.pl -t 90:00  -v VidTest.tsv -o ts_timeMode90.txt

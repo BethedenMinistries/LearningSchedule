@@ -55,3 +55,21 @@ echo ' ';
 echo 'awbsched.pl  -x  -f AWBVideos.tsv -o AWBSched_X_Fr.txt AWBFrench.txt'
 awbsched.pl  -x  -f AWBVideos.tsv -o AWBSched_X_Fr.txt AWBFrench.txt
 
+echo ' ';
+echo '******** Portuguese ********'
+echo ' ';
+echo 'awbsched.pl  -t 90:00  -f AWBVideos.tsv -o AWBSched_T90_Fr.txt AWBPortuguese.txt'
+awbsched.pl  -t 90:00  -f AWBVideos.tsv -o AWBSched_T90_Fr.txt AWBPortuguese.txt
+
+echo ' ';
+echo 'awbsched.pl  -t 50:00  -f AWBVideos.tsv -o AWBSched_T50_Fr.txt AWBPortuguese.txt'
+awbsched.pl  -t 50:00  -f AWBVideos.tsv -o AWBSched_T50_Fr.txt AWBPortuguese.txt
+
+echo ' ';
+echo 'awbsched.pl  -t 30:00  -f AWBVideos.tsv -o AWBSched_T30_Fr.txt AWBPortuguese.txt'
+awbsched.pl  -t 30:00  -f AWBVideos.tsv -o AWBSched_T30_Fr.txt AWBPortuguese.txt
+
+echo ' ';
+echo 'awbsched.pl  -x  -f AWBVideos.tsv -o AWBSched_X_Fr.txt AWBPortuguese.txt'
+awbsched.pl  -x  -f AWBVideos.tsv -o AWBSched_X_Fr.txt AWBPortuguese.txt
+

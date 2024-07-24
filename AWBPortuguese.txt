@@ -1,7 +1,7 @@
 ##########################################################################################
 ### Language-specific File for Aleph with Beth Learning Schedule
 ### 
-### TARGET LANGUAGE: Spanish
+### TARGET LANGUAGE: Portuguese
 ### 
 ### Input file for awbsched.pl.
 ### 
@@ -48,7 +48,7 @@
 ### Keep it as en_US unless you know the videos have alternate titles for this langauge
 ##########################################################################################
 #<locale>en_US
-<locale>es_ES
+<locale>en_US
 
 ##########################################################################################
 ### Tags for informational text at the beginning of the learning schedule
@@ -212,70 +212,70 @@
 ### Tags Books of the Bible
 ##########################################################################################
 <Bible>
-<Genesis>Génesis
-<Exodus>Exodo
+<Genesis>Gênesis
+<Exodus>Êxodo
 <Leviticus>Levítico
 <Numbers>Números
-<Deuteronomy>Deuteronomio
+<Deuteronomy>Deuteronômio
 <Joshua>Josué
-<Judges>Jueces
-<Ruth>Rut
+<Judges>Juizes
+<Ruth>Rute
 <1 Samuel>1 Samuel
 <2 Samuel>2 Samuel
-<1 Kings>1 Reyes
-<2 Kings>2 Reyes
-<1 Chronicles>1 Crónicas
-<2 Chronicles>2 Crónicas
+<1 Kings>1 Reis
+<2 Kings>2 Reis
+<1 Chronicles>1 Crônicas
+<2 Chronicles>2 Crônicas
 <Ezra>Esdras
-<Nehemiah>Nehemías
+<Nehemiah>Neemias
 <Esther>Ester
-<Job>Job
+<Job>Jó
 <Psalm>Salmos
-<Proverbs>Proverbios
-<Ecclesiastes>Eclesiastés
+<Proverbs>Provérbios
+<Ecclesiastes>Eclesiastes
 <Song of Solomon>Cantares
 <Isaiah>Isaías
-<Jeremiah>Jeremías
-<Lamentations>Lamentaciones
+<Jeremiah>Jeremias
+<Lamentations>Lamentações
 <Ezekiel>Ezequiel
 <Daniel>Daniel
-<Hosea>Oseas
+<Hosea>Oséias
 <Joel>Joel
 <Amos>Amós
-<Obadiah>Abdías
-<Jonah>Jonás
-<Micah>Miqueas
-<Nahum>Nahúm
-<Habbakkuk>Habacuc
+<Obadiah>Obadias
+<Jonah>Jonas
+<Micah>Miquéias
+<Nahum>Naum
+<Habbakkuk>Habacuque
 <Zephaniah>Sofonías
-<Haggai>Hageo
-<Zechariah>Zacarías
+<Haggai>Ageu
+<Zechariah>Zacarias
 <Malachi>Malaquías
-<Matthew>Mateo
+<Matthew>Mateus
 <Mark>Marcos
 <Luke>Lucas
-<John>Juan
-<Acts>Hechos
+<John>João
+<Acts>Atos
 <Romans>Romanos
 <1 Corinthians>1 Corintios
 <2 Corinthians>2 Corintios
 <Galatians>Gálatas
-<Ephesians>Efesios
-<Philippians>Filipenses
-<Colossians>Colosenses
-<1 Thessalonians>1 Tesalonicenses
-<2 Thassalonians>2 Tesalonicenses
-<1 Timothy>1 Timoteo
-<2 Timothy>2 Timoteo
+<Ephesians>Efésios
+<Philippians>Filipensis
+<Colossians>Colossenses
+<1 Thessalonians>1 Tessalonicenses
+<2 Thassalonians>2 Tessalonicenses
+<1 Timothy>1 Timóteo
+<2 Timothy>2 Timóteo
 <Titus>Tito
 <Philemon>Filemón
-<Hebrews>Hebreos
-<James>Santiago
+<Hebrews>Hebreus
+<James>Tiago
 <1 Peter>1 Pedro
 <2 Peter>2 Pedro
-<1 John>1 Juan
-<2 John>2 Juan
-<3 John>3 Juan
-<Jude>Jodas
-<Revelation>Apocalipsis
+<1 John>1 João
+<2 John>2 João
+<3 John>3 João
+<Jude>Judas
+<Revelation>Apocalipse
 </Bible>

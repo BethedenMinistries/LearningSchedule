@@ -1,4 +1,4 @@
-﻿##########################################################################################
+##########################################################################################
 ### Language-specific File for Aleph with Beth Learning Schedule
 ### 
 ### TARGET LANGUAGE: French
@@ -49,7 +49,7 @@
 ### Keep it as en_US unless you know the videos have alternate titles for this langauge
 ##########################################################################################
 #<locale>en_US
-<locale>
+<locale>en_US
 
 ##########################################################################################
 ### Tags for informational text at the beginning of the learning schedule
@@ -248,31 +248,31 @@
 <Haggai>Aggée
 <Zechariah>Zacharie
 <Malachi>Malachie
-<Matthew>Matthew
-<Mark>Mark
-<Luke>Luke
-<John>John
-<Acts>Acts
-<Romans>Romans
-<1 Corinthians>1 Corinthians
-<2 Corinthians>2 Corinthians
-<Galatians>Galatians
-<Ephesians>Ephesians
-<Philippians>Philippians
-<Colossians>Colossians
-<1 Thessalonians>1 Thessalonians
-<2 Thassalonians>2 Thessalonians
-<1 Timothy>1 Timothy
-<2 Timothy>2 Timothy
-<Titus>Titus
-<Philemon>Philemon
-<Hebrews>Hebrews
-<James>James
-<1 Peter>1 Peter
-<2 Peter>2 Peter
-<1 John>1 John
-<2 John>2 John
-<3 John>3 John
+<Matthew>Matthieu
+<Mark>Marc
+<Luke>Luc
+<John>Jean
+<Acts>Actes
+<Romans>Romains
+<1 Corinthians>1 Corinthiens
+<2 Corinthians>2 Corinthiens
+<Galatians>Galates
+<Ephesians>Éphésiens
+<Philippians>Philippiens
+<Colossians>Colossiens
+<1 Thessalonians>1 Thessaloniciens
+<2 Thassalonians>2 Thessaloniciens
+<1 Timothy>1 Timothée
+<2 Timothy>2 Timothée
+<Titus>Tite
+<Philemon>Philémon
+<Hebrews>Hébreux
+<James>Jacques
+<1 Peter>1 Pierre
+<2 Peter>2 Pierre
+<1 John>1 Jean
+<2 John>2 Jean
+<3 John>3 Jean
 <Jude>Jude
-<Revelation>Revelation
+<Revelation>Apocalypse
 </Bible>

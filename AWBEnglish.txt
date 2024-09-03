@@ -172,8 +172,8 @@
 #<write10>Practice writing each of the Hebrew letters from Lesson && ten times.
 <write10>Practice writing each of the Hebrew letters from Lesson && ten times.
 
-#<related>Review lesson video, Lesson &&.
-<related>Review lesson video, Lesson &&.
+#<related>Review video for Lesson &&.
+<related>Review video for Lesson &&.
 
 #<review_game>Watch review video, &&, and try to respond before hearing the answer.
 <review_game>Watch review video, &&, and try to respond before hearing the answer.

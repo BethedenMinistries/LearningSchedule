@@ -1,4 +1,4 @@
-﻿##########################################################################################
+##########################################################################################
 ### Language-specific File for Aleph with Beth Learning Schedule
 ### 
 ### TARGET LANGUAGE: English
@@ -172,8 +172,8 @@
 #<write10>Practice writing each of the Hebrew letters from Lesson && ten times.
 <write10>Practice writing each of the Hebrew letters from Lesson && ten times.
 
-#<related>Review related lesson video, Lesson &&.
-<related>Review related lesson video, Lesson &&.
+#<related>Review lesson video, Lesson &&.
+<related>Review lesson video, Lesson &&.
 
 #<review_game>Watch review video, &&, and try to respond before hearing the answer.
 <review_game>Watch review video, &&, and try to respond before hearing the answer.

@@ -447,6 +447,7 @@ if ($phrases{'locale'}) {
 }
 
 $title = $title ."_$locale";
+$title_default = $title . "en_US";
 
 
 print "The Locale is $locale. The Column used is $title\n" if $debug;
@@ -1452,6 +1453,10 @@ sub GET_VIDEOS {
 	    	# Strip off leading & trailing whitespace and quotation marks
 	    	# Quotation marks are used when a value contains commas.
 	    	$_ =~ s/^["''\s]+|["'\s]+$//g;  # Remove leading and trailing whitespace and quotation marks
+
+# Test for blank title here? If blank, replace with English title. 
+# Then in phrase file, you can keep locale accurate.
+
 	    	$vids[$ln]{$fields[$ix]} = $_;
 	    	$ix++;
 	    }

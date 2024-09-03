@@ -151,8 +151,8 @@
 #<write10>Practice writing each of the Hebrew letters from Lesson && ten times.
 <write10>Practique escribiendo cada una de las letras hebreas de la Lección && diez veces.
 
-#<related>Review related lesson video, Lesson &&.
-<related>Revise los videos relacionados con la Lección &&.
+#<related>Review video Lesson &&.
+<related>Revise el video Lección &&.
 
 #<review_game>Watch review video, &&, and try to respond before hearing the answer.
 <review_game>Vea el video de repaso, &&, e intente responder antes de escuchar la respuesta.

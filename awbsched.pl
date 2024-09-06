@@ -25,6 +25,8 @@ use Time::Stamp -stamps => { dt_sep => ' ', date_sep => '/', us => 1 };
 #				in different languages. Removed note to wait for more quizzes
 #				if there are currently none. There may not be any more and 
 # 				Alpha with Angela is not generating any anyway.
+# 09/05/2024	Added code to substitute the default (i.e. English) video title when
+#				the target language title field is blank in the video database.
 #
 ################################################################################
 ### Wish List/To Do List
@@ -403,11 +405,33 @@ $tot_time  = 0;
 $tot_days  = 0;
 
 ################################################################################
-### Build Databases for target-language phrases and lesson videos
+### Build Databases for target-language phrases
+################################################################################
+
+# Generate Phrases and Canon hashes (Language specific)
+($pref, $cref) = GET_PHRASES($in_file);
+%phrases = %{$pref};
+%canon   = %{$cref};
+
+# Select the right Video titles, based on locale in phrase file. (English is default)
+
+if ($phrases{'locale'}) {
+	$locale = $phrases{'locale'};
+} else {
+	$locale = $default_locale;
+}
+
+$title_default = $title . "_$default_locale";
+$title         = $title . "_$locale";
+
+print "The Locale is $locale. The Column used is $title\n" if $debug;
+
+################################################################################
+### Build Databases for lesson videos
 ################################################################################
 
 # Generate Videos array from file. Determine starting and ending lessons.
-@videos = GET_VIDEOS($video_file, $csv_char);
+@videos = GET_VIDEOS($video_file, $csv_char, $title, $title_default);
 
 	### Print out array of hashes for debug purposes
 	if ($debug) {
@@ -431,26 +455,7 @@ $end_lesson   = $max_lesson if ($end_lesson  > $max_lesson);
 print "Starting Lesson: $start_lesson, Ending Lesson: $end_lesson, Size of Video Array: $max_video\n" if $debug;
 print "Highest Lesson: $max_lesson, Lowest Lesson: $min_lesson\n" if $debug;
 
-# Generate Phrases and Canon hashes (Language specific)
 
-($pref, $cref) = GET_PHRASES($in_file);
-%phrases = %{$pref};
-%canon   = %{$cref};
-
-
-# Select the right Video titles, based on locale in phrase file. (English is default)
-
-if ($phrases{'locale'}) {
-	$locale = $phrases{'locale'};
-} else {
-	$locale = $default_locale;
-}
-
-$title = $title ."_$locale";
-$title_default = $title . "en_US";
-
-
-print "The Locale is $locale. The Column used is $title\n" if $debug;
 
 print "Highest Lesson: $max_lesson, Lowest Lesson: $min_lesson\n" if $debug;
 
@@ -1353,13 +1358,13 @@ sub VIDEO_LIST {
 }
 
 ################################################################################
-### GET_VIDEOS ($video_file)
+### GET_VIDEOS ($video_file,  $csv_char, $title, $title_default)
 ################################################################################
 sub GET_VIDEOS {
 ################################################################################
 ###  Builds an Array of hashes for all videos from input file.
 ###       Return: @videos
-###		  Global Variables: @fields, $csv_char, $debug
+###		  Global Variables: @fields, $debug
 ###
 ### 
 ### Syntax of Video Input File: (UTF-8, Tab-separated Values)
@@ -1440,7 +1445,7 @@ sub GET_VIDEOS {
 	
 	@fields = split($csv_char, $line);	# Split line into fields using delimieter
 		
-	my $ln = 0;				# Keep track of index for array (line nunber).
+	my $ln = 0;			# Keep track of index for array (line nunber).
 	
 	READV: while (<VIDFILE>){		
 		$line = CLEANUP($_);
@@ -1454,15 +1459,28 @@ sub GET_VIDEOS {
 	    	# Quotation marks are used when a value contains commas.
 	    	$_ =~ s/^["''\s]+|["'\s]+$//g;  # Remove leading and trailing whitespace and quotation marks
 
-# Test for blank title here? If blank, replace with English title. 
-# Then in phrase file, you can keep locale accurate.
-
 	    	$vids[$ln]{$fields[$ix]} = $_;
 	    	$ix++;
 	    }
 	    
 		$ln++;
 	} # End of READV
+	
+	
+	# If language-specific title field is blank, substitute default (en_US) title.
+	print "The title is $title and the default title is $title_default. There are $ln lines.\n" if $debug;
+	
+	if ($title ne $title_default) {
+		for my $iy (0 .. $ln-1) {
+		    print "Line $iy $vids[$iy]{'Duration'}\n" if $debug;
+			if ($vids[$iy]{$title} eq '') {
+			    print "Title should be blank -$vids[$iy]{$title}- " if $debug;
+				$vids[$iy]{$title} = $vids[$iy]{$title_default};	
+				print "Changed to --$vids[$iy]{$title}--\n" if $debug;
+			}
+		}	
+	}
+	
 					
 	close(VIDFILE);
 

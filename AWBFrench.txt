@@ -46,7 +46,7 @@
 ### Use standard Unix locale names for consistency.
 ### The video database must include a column of the name Title_<locale string>.
 ### 
-### Keep it as en_US unless you know the videos have alternate titles for this langauge
+### Keep it as en_US or leave it blank unless you know the videos have alternate titles for this language
 ##########################################################################################
 #<locale>en_US
 <locale>en_US

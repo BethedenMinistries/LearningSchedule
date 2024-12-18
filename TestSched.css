@@ -1,0 +1,105 @@
+﻿
+h1 {
+	color: black;
+	font-size: 20pt;
+	text-align: center;
+	font-family: sans-serif;
+	}
+	
+h2 {
+	color: black;
+	font-size: 16pt;
+	text-align: left;
+	font-family: sans-serif;
+	}
+	
+h2.week {
+	color: black;
+	font-size: 14pt;
+	text-align: center;
+	font-family: sans-serif;
+	}	
+	
+h3.day {
+	color: black;
+	font-size: 12pt;
+	text-align: left;
+	font-family: sans-serif;
+	}	
+	
+p.day {
+		text-indent: 0.45in;
+		}
+		
+a:link {
+	color: darkblue;
+	text-decoration: none;
+	}
+
+a:visited {
+	color: darkblue;
+	}
+	
+p.more {
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+	font-size: 14pt;
+	}
+	
+.intro {
+  		text-align: center;
+  		font-style: italic;
+  		font-size:  12pt;
+}	
+
+#body {
+#  		background-image: url("./AwB_Header.png");
+#  		background-repeat: no-repeat;
+#  		background-size: 8.5in;
+#  		background-position: top center;
+#  		}
+
+ul.links {
+	list-style-type: none;
+	line-height: 1.5;
+	}
+	
+ul.times {
+	list-style-type: none;
+	line-height: 1.0;
+	}
+	
+.altlink {
+    font-style: italic;
+    }  		
+
+ul.check {
+	
+		list-style-type: none;
+		
+		}
+
+@page {
+		size: 8.5in 11in;
+		margin-top: 1in;
+		margin-bottom: 1in;
+		right-margin: 1in;
+		left-margin:  1in;
+		page-orientation: portrait;
+		@bottom-center {
+				content: "Page " counter(pageNumber);
+					}
+		}
+
+@page :right {
+		left-margin: 0.75in;
+		}
+		
+@page :left {
+		right-margin: 0.75in;
+		}
+		
+@media print{
+	
+	}

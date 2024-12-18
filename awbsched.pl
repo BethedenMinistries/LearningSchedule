@@ -110,6 +110,7 @@ $opt_a  = 'Aleph'; 			# Default: Aleph with Beth
 $opt_c  = '\t'; 			# Default: delimiter character
 $opt_e  = $total_lessons;  	# Default: the highest number lesson. 
 #$opt_f  = 'AWBVideos.tsv'; # Default
+$opt_l  = 0;				# Default: Text output.
 #$opt_m  = 2;				# Lesson Mode, Default: 2 main videos per day
 #$opt_o  = "Output.txt";    # Default
 #$opt_s  = 1;				# Default: Starting Lesson Number
@@ -124,11 +125,9 @@ $command = "$src ";
 foreach (@ARGV) {
 	$command = $command . "$_ ";
 } 
-$command = $command . "\n";
-$command = $command . localstamp() . "\n";
 
 # Get Options
-getopts('dhpxa:c:e:f:m:o:s:t:u:v:w:');
+getopts('dhlpxa:c:e:f:m:o:s:t:u:v:w:');
 
 if ($opt_d) {
 	print "DEBUG MODE\nOptions: Debug: $opt_d, Help: $opt_h, Prev: $opt_p";
@@ -181,6 +180,17 @@ print "Output File name is -$out_file-\n" 		if $debug;
 $debug        = $opt_d;
 $incl_prev    = $opt_p;
 $xmode        = $opt_x;
+$html_out     = $opt_l;
+
+# Store command creating the schedule and time-stamp for printing at the end of the file
+if ($html_out) {
+	$command = "$command" . "<br>" . localstamp();
+} else {
+	$command = $command . "\n";
+	$command = $command . localstamp() . "\n";
+	print "The non-html Command is $command\n";
+}
+
 
 $course       = $opt_a;	
 $csv_char     = $opt_c;
@@ -232,12 +242,27 @@ $quiz_take_time   =  "3:00";
 $related_avg_time = "20:00";
 
 # UTF-8 constants
-$box    = "\N{U+25A2}"; # should be a blank check-box
+if ($html_out) {
+	$box = '<input type="checkbox">';
+} else {
+	$box    = "\N{U+25A2}"; # should be a blank check-box
+}
 $bullet = "\N{U+2022}"; # should be a bullet
 $dash   = "\N{U+2013}"; # should be en-dash
 
 # Character string to be replaced by video-specific text (in %phrases)
 $sub_char = '&&';  
+
+# Character string separating URL from phrase 
+# $html_mk = "||";
+
+# Tab indent levels
+$ind1 = "\t";
+$ind2 = "\t\t";
+$ind3 = "\t\t\t";
+$ind4 = "\t\t\t\t";
+$ind5 = "\t\t\t\t\t";
+$ind6 = "\t\t\t\t\t\t";
 
 # Determine Mode
 # Order of precedence: Unit, Time, Video, Main, (Default = Main) 
@@ -466,6 +491,10 @@ print "Highest Lesson: $max_lesson, Lowest Lesson: $min_lesson\n" if $debug;
 
 open(OUTFILE, ">$out_file")  || die "ERROR: $! ($out_file)\n";
 
+if ($html_out) {
+   INITIALIZE_HTML ($course);
+}
+
 PRINT_HEADER ($course);
 
 ################################################################################
@@ -492,6 +521,69 @@ exit;
 ### Daughter Subroutines
 ################################################################################
 ################################################################################
+### INITIALIZE_HTML (course_type)
+################################################################################
+sub INITIALIZE_HTML {
+################################################################################
+### Generates the opening lines of the HTML Document and the <head> tag.
+### 
+### 	Global Variables:
+################################################################################
+
+	my $course = $_[0];  # Placeholder argument to select language course 
+
+	print OUTFILE "<!DOCTYPE html>\n";
+	print OUTFILE "<html>\n";
+	
+	### Head Element
+	print OUTFILE "$ind1<head>\n";
+	
+	### Ensure Hebrew and other characters render correctly
+	print OUTFILE '<meta charset="utf-8">' . "\n";
+	
+	### Style Sheet
+	print OUTFILE "$ind2" . '<link rel="stylesheet" type="text/css" href="./TestSched.css">' . "\n";
+	
+	return;
+}
+################################################################################
+### INITIALIZE_HTML (course_type)
+################################################################################
+sub FINALIZE_HTML {
+################################################################################
+### Generates the opening lines of the HTML Document and the <head> tag.
+### 
+### 	Global Variables:
+################################################################################
+
+	my $course = $_[0];  # Placeholder argument to select language course 
+
+	### Terminate Body Element
+	print OUTFILE "$ind1<\/body>\n";
+	
+	### Terminate HTML Element
+	print OUTFILE "<\/html>\n";
+	
+	return;
+}
+
+################################################################################
+### HTML_HEADER (course_type)
+################################################################################
+sub HTML_HEADER {
+################################################################################
+### Generates the header element in the HTML Document.
+### 
+### 	Global Variables:
+################################################################################
+
+	print OUTFILE "\t\t<header>\n";
+	print OUTFILE "\t\t</header>\n";
+	print OUTFILE "\t\t<main>\n";
+	return;
+}
+
+################################################################################
 ### PRINT_HEADER (course_type)
 ################################################################################
 sub PRINT_HEADER {
@@ -516,42 +608,90 @@ sub PRINT_HEADER {
 	    my $str = $phrases{'intro'}->[$ix];
 	    
 	    if ($ix ==0) {
-	    	$str =~ s/$sub_char/$start_lesson$dash$end_lesson/;	    
-			print  OUTFILE "****** $str ******\n\n";	    
+			if ($html_out) {
+	    		$str =~ s/$sub_char/$start_lesson\&ndash\;$end_lesson/;	    
+				print OUTFILE "<title>$str</title>\n";
+				print OUTFILE "\t</head>\n";
+				print OUTFILE "\t<body>\n";
+				HTML_HEADER();
+				print OUTFILE "\t\t<section>\n";
+				print OUTFILE "\t\t\t<h1>$str</h1>\n";
+				print OUTFILE "\t\t\t<p class=\"intro\">\n";
+			} else {
+	    		$str =~ s/$sub_char/$start_lesson$dash$end_lesson/;	    
+				print  OUTFILE "****** $str ******\n\n";    
+			}
 	    } else {
-			print  OUTFILE "$str\n";
-	    }
-	    	    
+	        if ($html_out) {
+	        	print  OUTFILE "$str<br>\n";
+	        } else {
+	    		print  OUTFILE "$str\n";
+	    	}
+	    }  	    
  	}	
-	print OUTFILE "\n\n";
 	
+	if ($html_out) {
+		print OUTFILE "</p>\n\n"	
+	} else {	
+		print OUTFILE "\n\n";
+	}	
 	
-	for my $ix (0 .. $#{@phrases{'howto'}}) {
-	    my $str = $phrases{'howto'}->[$ix];
+	PRINT_HEADER_SUBSECTION('howto', $course);	
+	PRINT_HEADER_SUBSECTION('links', $course);
 
-	    if ($ix ==0) {
-			print  OUTFILE "*** $str ***\n\n";	    
-	    } elsif (index($str, 'https') == 0) {
-			print  OUTFILE "\t\t$str\n";
-	    } else {
-	    	print  OUTFILE "$str\n";
-	    }	    	    
- 	}	
-	print OUTFILE "\n\n";
+	return;
+
+}
+################################################################################
+### PRINT_HEADER_SUBSECTION (starting lesson, ending lesson, index for last video)
+################################################################################
+sub PRINT_HEADER_SUBSECTION {
+################################################################################
+### Both the Links and HowTo subsections are processed the same way.
+###	Processes one subsection and outputs to OUTFILE.
+###	
+###     Global Variables: %phrases
+### 
+################################################################################
+	print "PRINT_HEADER_SUBSECTION Subroutine ($course)\n" if $debug;
 	
+	my $subsection = $_[0];
+	my $course     = $_[1];  # Placeholder argument to select language course 
+
 	
-	for my $ix (0 .. $#{@phrases{'links'}}) {
-	    my $str = $phrases{'links'}->[$ix];
+	for my $ix (0 .. $#{@phrases{$subsection}}) {
+	    my $str = $phrases{$subsection}->[$ix];
 	    
 	    if ($ix ==0) {
-			print  OUTFILE "*** $str ***\n\n";	    
-	    } elsif (index($str, 'https') == 0) {
-			print  OUTFILE "\t\t$str\n";
+	    	if ($html_out) {
+	    		print OUTFILE "$ind3<h2>$str</h2>\n";
+	    		print OUTFILE "$ind4<ul class=\"$subsection\">\n";	    		
+	    	} else {
+	    		print OUTFILE "*** $str ***\n\n";	    
+	    	}
+	    } elsif (index($str, "http") == -1) {
+	    	# No HTML link in phrase
+			print  OUTFILE "$ind2$str\n";
 	    } else {
-	    	print  OUTFILE "$str\n";
+	    	# HTML Link in phrase
+			$str =~ s/(.*)(http.*)//;
+			$str_text = CLEANUP($1);
+			$str_link = CLEANUP($2);
+
+  	   		if ($html_out) {
+  	   			print OUTFILE "$ind5<li><a target='_blank' href=$str_link>$str_text<\/a><\/li>\n";
+  	   		} else {
+	    		print OUTFILE "$str\n";
+	    	}
 	    }	    	    
  	}	
-	print OUTFILE "\n";
+ 	
+	if ($html_out) {
+		print OUTFILE "</ul>\n\n";
+		print OUTFILE "$ind2</section>\n";
+	} else {	
+		print OUTFILE "\n";
+	}
 	
 	return;
 
@@ -786,6 +926,14 @@ sub PRINT_LESSON {
 	$num_p = $videos[$main_lessons_p[0]]{$num}; 
 	
 	$lesson_count++;
+	
+	if ($html_out) {
+		$nt = " ";
+		$colon = "";
+	} else {
+		$nt = "\n\t";
+		$colon = ":";
+	}
 	 
 	### Current Lesson (Grammar or Alphabet): Listen, Repeat
 	MAIN_N1: for (@main_lessons_n) {
@@ -797,7 +945,7 @@ sub PRINT_LESSON {
 		# This accounts for the starting lesson not being on a full week boundary 
 		my $force_wk = ($mode eq $unit_mode) && ($num_n % (2 * $max_unit) == 1) && !$first;
 		my $force_dy = 0; # Took out Force New Day.
-		PRINT_LINE($line, 'watch_listen', 1, " ($videos[$_]{$title}:\n\t$videos[$_]{$url})", 0, 0, $force_dy, $force_wk);
+		PRINT_LINE($line, 'watch_listen', 1, " ($videos[$_]{$title}$colon$nt$videos[$_]{$url})", 0, 0, $force_dy, $force_wk);
 		# Force a new day after first video if in UnitX mode unless it is the first day.
 		INCREMENT_COUNTERS (1, 1, $videos[$_]{$duration}, 1);
 		my $force_dy = ($xmode && !$first && ($videos[$_]{$num} %2 == 1));		
@@ -809,7 +957,7 @@ sub PRINT_LESSON {
 #		print "STORYP1 -$_-\n";
 		$line = "$videos[$_]{$title} ($videos[$_]{$duration})";
 		INCREMENT_COUNTERS (0, 1, $videos[$_]{$duration}, 1);
-		PRINT_LINE($line, 'watch_story_listen', 1, "\n\t($videos[$_]{$url})", 0, 0, 0, 0);
+		PRINT_LINE($line, 'watch_story_listen', 1, "$nt($videos[$_]{$url})", 0, 0, 0, 0);
 	}
 	
 	# Previous Lesson Bonus: Repeat	
@@ -989,19 +1137,37 @@ sub PRINT_LESSON {
 	}
 
 	if ($last && ($videos[$lesson_n[0]]{$num} < $total_lessons)) {
-		PRINT_LINE("", 'more', 99, "", 0, 1, 0, 0, 0, 0);		   
+		PRINT_LINE("", 'more', 99, "", 0, 1, 0, 0, 0, 0);			   
 		print OUTFILE "\n";
 	} 
 	
 	if ($last) {
+		if ($html_out) {
+			# End MAIN section and start Footer
+			print OUTFILE "<\/main>\n";
+			print OUTFILE "<footer>\n<hr>\n";
+			print OUTFILE "<ul class=\"times\">\n";
+		}
+		
 		PRINT_LINE(MAKE_TIME($max_secs, 0),             'longest',    99, "", 0, 1, 0, 0);
 		PRINT_LINE(MAKE_TIME($min_secs, 0),             'shortest',   99, "", 0, 1, 0, 0);
 		PRINT_LINE(MAKE_TIME(int($tot_time/$tot_days)), 'average',    99, "", 0, 1, 0, 0);
 		PRINT_LINE($tot_days,                           'total_days', 99, "", 0, 1, 0, 0);
 		PRINT_LINE(MAKE_TIME($tot_time, 1),             'total_time', 99, "", 0, 1, 0, 0);
 				
-		print OUTFILE "\n";
-		print OUTFILE $command;  # Print options used to generate file and time stamp.
+		if ($html_out) {
+			print OUTFILE "<\/ul>\n\n";
+			print OUTFILE "<p class='cmd'>$command<\/p>\n";  # Print options used to generate file and time stamp.
+		} else {
+			print OUTFILE "\n";
+			print OUTFILE $command;  # Print options used to generate file and time stamp.
+		}
+	}
+	
+	
+	if ($html_out) {
+		print OUTFILE "$ind1<\/footer>\n";
+		FINALIZE_HTML($course);
 	}
 	
 	# Reset $first flag
@@ -1122,14 +1288,65 @@ sub PRINT_LINE {
     print  "Key: $keyx, MD $mode, CT $main_count, MX $max_main\n$line\n" if $debug;
 	
 	my $time_str = MAKE_TIME($time_count, 0);
-	print OUTFILE "$boxes$line$append";
-	print OUTFILE " ($main_count, $vid_count, $lesson_count, $time_str)" if $debug;
-	print OUTFILE "\n";
+	
+	if ($html_out) {
+	    ## Need a decision tree for $keyx.
+	    my $temp = $boxes . $line . $append;
+	    
+		print OUTFILE URL_PARSE($keyx, "$boxes$line$append") ."\n";
+		
+	} else {
+		print OUTFILE "$boxes$line$append";
+		print OUTFILE " ($main_count, $vid_count, $lesson_count, $time_str)" if $debug;
+		print OUTFILE "\n";
+	}
 	
 	return;
 
 }
+################################################################################
+### URL_PARSE ($keyx, text_string)
+################################################################################
+sub URL_PARSE {
+################################################################################
+###	Parses the text string into URL, link text, and everything else.
+### 
+### Returns the string with <a href=URL></a> format and other tags based on $keyx.
+### 
+###		Global Variables: $debug
+### 
+################################################################################
 
+	my $keyx    = $_[0];	
+	my $str		= $_[1];
+		
+	if (index($str, "http") == -1) {
+	    	$temp_str = $str;
+	    } else {
+	    	# HTML Link in phrase
+	print "String: $str\n";
+	    	
+			$str =~ s/(.*)\{(.*)\}(.*)\w(http.*)[\)\w]//;
+			print "--$1--$2--$3--$4--$5--\n";
+			$str1    = $1;
+			$a_str   = $2;
+			$str2    = $3;
+			$url_str = $4;
+			$str3    = $5;
+			if (index($str2, "http") >= 0) { 
+				
+			
+			
+			}
+			
+  	   		$temp_str = "$str1<a target='_blank' href=$url_str>$a_str<\/a>$str2$str3";
+	    }	    	    
+
+    $html_str = "<li>$temp_str<\/li>";
+
+	
+	return $html_str;
+}
 ################################################################################
 ### PRINT_TIME (Skip printing total time flag, force new week flag)
 ################################################################################
@@ -1139,7 +1356,7 @@ sub PRINT_TIME {
 ### print the total time for the day's assignment.
 ###
 ###		Global Variables: %phrases, $week_count, $day_count, $max_day
-### 				$time_count, $time_adjust, $debug
+### 				$time_count, $time_adjust, $html_out, $debug
 ### 
 ################################################################################
 
@@ -1157,12 +1374,31 @@ sub PRINT_TIME {
    		# Time for a new week. Previous Week is full.
 		$day_count = 1;
 		print "Reset Day count: $day_count, $week_count\n" if $debug;
-    	print OUTFILE "\n\n\*\*\* $phrases{'week'} $week_count \*\*\*\n";	
-		print OUTFILE "\n$phrases{'day'} $day_count\n";
+		
+		# Print Week Heading
+   		if ($html_out) {
+   		   print OUTFILE "<h2 class=\"week\">$phrases{'week'} $week_count<\/h3>\n";
+   		} else {
+    		print OUTFILE "\n\n\*\*\* $phrases{'week'} $week_count \*\*\*\n";	
+   		}
+		
+		# Print Day Heading
+   		if ($html_out) {
+   		   print OUTFILE "<h3 class=\"day\">$phrases{'day'} $day_count<\/h3>\n";
+   		   print OUTFILE $ind1 . '<ul class="check">' . "\n";
+   		} else {
+   		   	print OUTFILE "\n$phrases{'day'} $day_count\n";
+   		}
 		$week_count++;		
    	} else {
-   		# Start a new day.
-   		print OUTFILE "\n$phrases{'day'} $day_count\n";
+   		# Start a new day, Print Day Heading
+   		if ($html_out) {
+   		   print OUTFILE "<h3 class=\"day\">$phrases{'day'} $day_count<\/h3>\n";
+   		   print OUTFILE $ind1 . '<ul class="check">' . "\n";
+
+   		} else {
+   		   	print OUTFILE "\n$phrases{'day'} $day_count\n";
+   		}
    	}
     
 	if (($day_count < $max_day)){$day_count++;} else {$day_count = 1};
@@ -1196,7 +1432,12 @@ sub PRINT_TOTAL_TIME {
 	my $line = $phrases{'time'};
 	$line =~ s/$sub_char/$n/;
 	
-	print OUTFILE "\t$line\n";
+	if ($html_out) {
+		print OUTFILE "$ind1<\/ul>\n";
+		print OUTFILE "$ind1<p tottime=\"day\">$line<\/p>\n\n";
+	} else {
+		print OUTFILE "\t$line\n";
+	}
 	
 	return;
    	
@@ -1668,7 +1909,7 @@ sub B_TRANSLATE {
 sub CLEANUP {
 ################################################################################
 ###    Removes UTF-8 BOM, line-breaks, and leading and trailing whitespace
-### 	Returns cleane up text string.
+### 	Returns cleans up text string.
 ################################################################################
 	my $str = $_[0];	# Text string to be cleaned up.
 	
